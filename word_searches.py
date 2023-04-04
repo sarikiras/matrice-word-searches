@@ -15,4 +15,4 @@ for row in rows:
 
 t_grid = []
 
-print(check_grid(grid, mots))
+check_grid(grid, mots)
