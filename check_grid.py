@@ -6,8 +6,8 @@ def t_grid(grid):
     t_grid = []
     for j in range(len(grid[0])):
         col = []
-        for i in range(len(grid)):
-            col.append(grid[i][j])
+        for i in grid:
+            col.append(i[j])
         t_grid.append(col)
     return t_grid
 

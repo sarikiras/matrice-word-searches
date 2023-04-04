@@ -8,8 +8,9 @@ def check_line_1w(ligne, mot):
         for i in range(len(ligne)-n+1):
             subset = ''.join(ligne[i: i+n])
             subset_n.append(subset)
-            subset_n.append(subset)
+        # print(subset_n)
         subset_n_rvse = [mot[::-1] for mot in subset_n]
+        # print(subset_n_rvse)
         return mot in subset_n or mot in subset_n_rvse
 
 
@@ -26,6 +27,6 @@ if __name__ == '__main__':
     mot = 'charizard'
     print(check_line_1w(ligne, mot))
 
-    liste = open('words.dic').read()
+    liste = open('words2.dic').read()
     mots = liste.split('\n')
     print(check_line(ligne, mots))
