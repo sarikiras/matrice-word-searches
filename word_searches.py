@@ -2,7 +2,7 @@ from check_line import *
 
 liste = open('words.dic').read()
 mots = liste.split('\n')
-print(mots)
+# print(mots)
 
 grille = open('grid').read()
 rows = grille.split('\n')
@@ -13,5 +13,6 @@ for row in rows:
         ligne.append(lettre)
     grid.append(ligne)
 
+t_grid = []
 
-# print(check_grid(grid, mots))
+print(check_grid(grid, mots))

@@ -22,6 +22,11 @@ def check_line(ligne, mots):
 def check_grid(grid, mots):
     for ligne in grid:
         check_line(ligne, mots)
+    col = []
+    for j in range(len(grid[0])):
+        for i in range(len(grid)):
+            col.append(grid[i][j])
+        check_line(col, mots)
     return mots
 
 
@@ -34,3 +39,4 @@ if __name__ == '__main__':
     liste = open('words.dic').read()
     mots = liste.split('\n')
     print(check_line(ligne, mots))
+
