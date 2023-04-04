@@ -1,4 +1,6 @@
 from check_line import *
+from diagonale import *
+from check_grid import *
 
 liste = open('words.dic').read()
 mots = liste.split('\n')
@@ -12,7 +14,5 @@ for row in rows:
     for lettre in row:
         ligne.append(lettre)
     grid.append(ligne)
-
-t_grid = []
 
 check_grid(grid, mots)

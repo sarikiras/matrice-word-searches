@@ -3,13 +3,14 @@
 
 def check_line_1w(ligne, mot):
     n = len(mot)
-    subset_n = []
-    for i in range(len(ligne)-n+1):
-        subset = ''.join(ligne[i: i+n])
-        subset_n.append(subset)
-        subset_n.append(subset)
-    subset_n_rvse = [mot[::-1] for mot in subset_n]
-    return mot in subset_n or mot in subset_n_rvse
+    if len(mot) <= len(ligne):
+        subset_n = []
+        for i in range(len(ligne)-n+1):
+            subset = ''.join(ligne[i: i+n])
+            subset_n.append(subset)
+            subset_n.append(subset)
+        subset_n_rvse = [mot[::-1] for mot in subset_n]
+        return mot in subset_n or mot in subset_n_rvse
 
 
 def check_line(ligne, mots):
@@ -17,17 +18,6 @@ def check_line(ligne, mots):
         if check_line_1w(ligne, mot):
             mots.remove(mot)
     return mots
-
-
-def check_grid(grid, mots):
-    for ligne in grid:
-        check_line(ligne, mots)
-    for j in range(len(grid[0])):
-        col = []
-        for i in range(len(grid)):
-            col.append(grid[i][j])
-        check_line(col, mots)
-    print(mots)
 
 
 if __name__ == '__main__':
