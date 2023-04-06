@@ -4,8 +4,11 @@ from check_grid import *
 
 liste = open('words.dic').read()
 mots = liste.split('\n')
-mots.pop()
-# print(mots)
+hidden_words = []
+for mot in mots:
+    if mot != '':
+        hidden_words.append(mot)
+# print(hidden_words)
 
 grille = open('grid').read()
 rows = grille.split('\n')
