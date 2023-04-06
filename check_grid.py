@@ -12,21 +12,20 @@ def t_grid(grid):
     return t_grid
 
 
-def check_grid(grid, mots):
-
-    for ligne in grid:
-        mots = check_line(ligne, mots)
-    for ligne in t_grid(grid):
-        mots = check_line(ligne, mots)
-    for ligne in diagonales_GD(grid):
-        mots = check_line(ligne, mots)
-    for ligne in diagonales_DG(grid):
-        mots = check_line(ligne, mots)
-    for mot in mots:
-        print(mot)
-
-
 if __name__ == '__main__':
+
+    def check_grid(grid, mots):
+
+        for ligne in t_grid(grid):
+            mots = check_line(ligne, mots)
+        for ligne in diagonales_GD(grid):
+            mots = check_line(ligne, mots)
+        for ligne in diagonales_DG(grid):
+            mots = check_line(ligne, mots)
+        for mot in mots:
+            print(mots)
+
+    # if __name__ == '__main__':
     liste = open('words.dic').read()
     mots = liste.split('\n')
 

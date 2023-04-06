@@ -1,6 +1,8 @@
 from check_line import *
 from diagonale import *
 from check_grid import *
+from upper_grid import *
+
 
 liste = open('words.dic').read()
 mots = liste.split('\n')
@@ -22,4 +24,5 @@ for row in rows:
         ligne.append(lettre)
     grid.append(ligne)
 
-check_grid(grid, mots)
+grid = check_grid(grid, mots)
+concatenation(grid)

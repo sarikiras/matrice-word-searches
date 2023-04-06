@@ -1,5 +1,6 @@
 # check_line(ligne, mot) est une fonction qui vérifie
 # si le mot est dans la ligne, dans les 2 sens
+# from upper_grid import*
 
 def check_line_1w(ligne, mot):
     n = len(mot)
