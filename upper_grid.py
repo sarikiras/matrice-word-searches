@@ -50,7 +50,7 @@ def upper_check_line(ligne, mots):
 
 
 def check_grid_lines(grid, mots):
-
+    new_grid = liste(range(len(grid)))
     for i in range(len(grid)):
         ligne, mots = upper_check_line(grid[i], mots)
         new_grid[i] = ligne
