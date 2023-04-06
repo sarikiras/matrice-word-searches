@@ -9,9 +9,10 @@ def check_line_1w(ligne, mot):
             subset = ''.join(ligne[i: i+n])
             subset_n.append(subset)
         # print(subset_n)
-        subset_n_rvse = [mot[::-1] for mot in subset_n]
+        # subset_n_rvse = [mot[::-1] for mot in subset_n]
         # print(subset_n_rvse)
-        return mot in subset_n or mot in subset_n_rvse
+        inv_mot = mot[::-1]
+        return mot in subset_n or inv_mot in subset_n
 
 
 def check_line(ligne, mots):

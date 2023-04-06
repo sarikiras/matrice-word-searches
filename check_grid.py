@@ -4,7 +4,7 @@ from diagonale import *
 
 def t_grid(grid):
     t_grid = []
-    for j in range(len(grid[0])):
+    for j in range(len(grid)):      # cas où n=p
         col = []
         for i in grid:
             col.append(i[j])
