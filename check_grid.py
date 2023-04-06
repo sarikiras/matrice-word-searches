@@ -11,7 +11,7 @@ def t_grid(grid):
                 col.append(i[j])
         t_grid.append(col)
     except IndexError:
-        raise IndexError(grid)
+        raise IndexError(len(grid), len(grid[0]))
     return t_grid
 
 
