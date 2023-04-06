@@ -9,10 +9,14 @@ mots = liste.split('\n')
 grille = open('grid').read()
 rows = grille.split('\n')
 grid = []
+
 for row in rows:
     ligne = []
     for lettre in row:
         ligne.append(lettre)
     grid.append(ligne)
 
-check_grid(grid, mots)
+if len(grid) == 0:
+    raise IndexError('Grille vide ou non lue')
+else:
+    check_grid(grid, mots)
