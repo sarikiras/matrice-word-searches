@@ -22,7 +22,7 @@ def check_grid(grid, mots):
         mots = check_line(ligne, mots)
     for ligne in diagonales_DG(grid):
         mots = check_line(ligne, mots)
-    print(mots)
+    print(*mots)
 
 
 if __name__ == '__main__':
