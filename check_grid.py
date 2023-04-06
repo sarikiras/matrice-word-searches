@@ -4,18 +4,16 @@ from diagonale import *
 
 def t_grid(grid):
     t_grid = []
-    try:
-        for j in range(len(grid)):      # cas où n=p
-            col = []
-            for i in grid:
-                col.append(i[j])
+    for j in range(len(grid[0])):
+        col = []
+        for i in grid:
+            col.append(i[j])
         t_grid.append(col)
-    except IndexError:
-        raise IndexError(grid[12])
     return t_grid
 
 
 def check_grid(grid, mots):
+
     for ligne in grid:
         mots = check_line(ligne, mots)
     for ligne in t_grid(grid):
@@ -39,5 +37,4 @@ if __name__ == '__main__':
         for lettre in row:
             ligne.append(lettre)
         grid.append(ligne)
-
     check_grid(grid, mots)

@@ -4,10 +4,13 @@ from check_grid import *
 
 liste = open('words.dic').read()
 mots = liste.split('\n')
+mots.pop()
 # print(mots)
 
 grille = open('grid').read()
 rows = grille.split('\n')
+rows.pop()
+# print(rows)
 grid = []
 
 for row in rows:
@@ -16,7 +19,4 @@ for row in rows:
         ligne.append(lettre)
     grid.append(ligne)
 
-if len(grid) == 0:
-    raise IndexError('Grille vide ou non lue')
-else:
-    check_grid(grid, mots)
+check_grid(grid, mots)
