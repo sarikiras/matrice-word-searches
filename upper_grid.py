@@ -22,11 +22,12 @@ for row in rows:
     grid.append(ligne)
 
 # je crée une nouvelle grille
-new_grid = grid.copy()
+new_grid = [i for i in grid]
 
 
 def upper_check_line_1w(ligne, mot):
-    # ligne peut eventuellement contenir des majuscules
+    # je définis une fonction qui renvoie une ligne si elle est modifiée
+    # ligne peut déjà eventuellement contenir des majuscules
     n = len(mot)
     if len(mot) <= len(ligne):
         ligne_temp = [i.lower() for i in ligne]
@@ -38,8 +39,9 @@ def upper_check_line_1w(ligne, mot):
                 return ligne
 
 
-def upper_check_line(ligne, mots):
-    mots_iter = mots.copy()
+def upper_check_line(ligne, mots):  # ici c'est la ligne initiale en minuscules
+    # cette fonction renvoie la ligne modifiée
+    mots_iter = [mot for mot in mots]
     for mot in mots_iter:
         result = upper_check_line_1w(ligne, mot)
         if result is not None:
@@ -49,10 +51,11 @@ def upper_check_line(ligne, mots):
 
 
 def check_grid_lines(grid, mots):
-    new_grid = list(range(len(grid)))
-    for i in range(len(grid)):
-        ligne, mots = upper_check_line(grid[i], mots)
-        new_grid[i] = ligne
+    # cette fonction me renvoie toute la grille modifiée
+    new_grid = []
+    for ligne in grid:
+        new_ligne, mots = upper_check_line(ligne, mots)
+        new_grid.append(new_ligne)
     return new_grid, mots
 
 
@@ -74,29 +77,19 @@ def concatenation(grid):
 
 def check_grid_upper(grid, mots):
 
-    grille_ini = [liste for liste in grid]
-
-    check_grid_lines(grid, mots)
-    check_grid_lines(t_grid(grid), mots)
-    grid = t_grid(grid)
-    # print(mots)
-    for ligne in diagonales_GD(grille_ini):
+    new_grid, mots = check_grid_lines(grid, mots)  # modif lignes
+    new_grid, mots = check_grid_lines(t_grid(new_g rid), mots)  # id colonnes
+    new_grid = t_grid(new_grid)
+    for ligne in diagonales_GD(grid):
         mots = check_line(ligne, mots)
-    # print(mots)
-    for ligne in diagonales_DG(grille_ini):
+    for ligne in diagonales_DG(grid):
         mots = check_line(ligne, mots)
-    # print(mots)
     for mot in mots:
         print(mot)
-    return grid
+    return new_grid
 
 
 if __name__ == '__main__':
 
-    check_grid(grid, hidden_words)
-
-#     for mot in mots:
-#         print(mot)
-
-# print(grid[-3], hidden_words[6])
-# print(upper_check_line(grid[-3], ['raikou', 'tou', 'pipi']))
+    check_grid_upper(grid, hidden_words)
+    # print(upper_check_line(grid[-1], ['oups', 'coucou', 'papa']))
