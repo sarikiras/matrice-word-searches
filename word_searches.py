@@ -4,7 +4,7 @@ from check_grid import *
 from upper_grid import *
 
 
-liste = open('words_test.dic').read()
+liste = open('words.dic').read()
 mots = liste.split('\n')
 hidden_words = []
 for mot in mots:
@@ -12,7 +12,7 @@ for mot in mots:
         hidden_words.append(mot)
 # print(hidden_words)
 
-grille = open('grid_test').read()
+grille = open('grid').read()
 rows = grille.split('\n')
 rows.pop()
 # print(rows)
