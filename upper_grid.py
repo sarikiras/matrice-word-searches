@@ -59,18 +59,16 @@ def check_grid_lines(grid, mots):
 
 def check_grid(grid, mots):
 
-    grid_temp = grid.copy()
-
-    grid, mots = check_grid_lines(grid, mots)
-    grid, mots = check_grid_lines(t_grid(grid), mots)
-    grid = t_grid(grid)
-    for ligne in diagonales_DG(grid_temp):
+    grid_up, mots = check_grid_lines(grid, mots)
+    grid_up, mots = check_grid_lines(t_grid(grid), mots)
+    grid_up = t_grid(grid_up)
+    for ligne in diagonales_DG(grid):
         mots = check_line(ligne, mots)
-    for ligne in diagonales_GD(grid_temp):
+    for ligne in diagonales_GD(grid):
         mots = check_line(ligne, mots)
     for mot in mots:
         print(mot)
-    return grid
+    return grid_up
 
 
 def concatenation(grid):

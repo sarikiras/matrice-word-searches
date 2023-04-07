@@ -17,7 +17,8 @@ def check_line_1w(ligne, mot):
 
 
 def check_line(ligne, mots):
-    for mot in mots:
+    mots_iter = mots.copy()
+    for mot in mots_iter:
         if check_line_1w(ligne, mot):
             mots.remove(mot)
     return mots
