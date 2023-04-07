@@ -1,8 +1,7 @@
 from check_line import *
 from diagonale import *
-from check_grid import *
 
-liste = open('words.dic').read()
+liste = open('words_test.dic').read()
 mots = liste.split('\n')
 hidden_words = []
 for mot in mots:
@@ -10,7 +9,7 @@ for mot in mots:
         hidden_words.append(mot)
 # print(hidden_words)
 
-grille = open('grid').read()
+grille = open('grid_test').read()
 rows = grille.split('\n')
 rows.pop()
 # print(rows)
@@ -31,7 +30,7 @@ def upper_check_line_1w(ligne, mot):
     n = len(mot)
     if len(mot) <= len(ligne):
         ligne_temp = [i.lower() for i in ligne]
-        for i in range(len(ligne)-n+1):
+        for i in range(len(ligne_temp)-n+1):
             subset = ''.join(ligne_temp[i: i+n])
             if subset == mot or subset == mot[::-1]:
                 for k in range(n):
@@ -57,18 +56,14 @@ def check_grid_lines(grid, mots):
     return new_grid, mots
 
 
-def check_grid(grid, mots):
-
-    grid_up, mots = check_grid_lines(grid, mots)
-    grid_up, mots = check_grid_lines(t_grid(grid), mots)
-    grid_up = t_grid(grid_up)
-    for ligne in diagonales_DG(grid):
-        mots = check_line(ligne, mots)
-    for ligne in diagonales_GD(grid):
-        mots = check_line(ligne, mots)
-    for mot in mots:
-        print(mot)
-    return grid_up
+def t_grid(grid):
+    t_grid = []
+    for j in range(len(grid[0])):
+        col = []
+        for i in grid:
+            col.append(i[j])
+        t_grid.append(col)
+    return t_grid
 
 
 def concatenation(grid):
@@ -77,7 +72,27 @@ def concatenation(grid):
         print(ligne)
 
 
+def check_grid_upper(grid, mots):
+
+    grille_ini = [liste for liste in grid]
+
+    check_grid_lines(grid, mots)
+    check_grid_lines(t_grid(grid), mots)
+    grid = t_grid(grid)
+    # print(mots)
+    for ligne in diagonales_GD(grille_ini):
+        mots = check_line(ligne, mots)
+    # print(mots)
+    for ligne in diagonales_DG(grille_ini):
+        mots = check_line(ligne, mots)
+    # print(mots)
+    for mot in mots:
+        print(mot)
+    return grid
+
+
 if __name__ == '__main__':
+
     check_grid(grid, hidden_words)
 
 #     for mot in mots:

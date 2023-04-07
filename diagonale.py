@@ -56,6 +56,7 @@ def diagonales_GD(grid):            # excellent!
         new_grid = list(range(n))
         for i in range(n):
             new_grid[i] = grid[i][d:]
+
         liste += grid_sup(new_grid, n)
 
         return liste
@@ -94,12 +95,7 @@ def diagonales_DG(grid):
 
 if __name__ == '__main__':
 
-    liste = open('words.dic').read()
-    mots = liste.split('\n')
-    mots.pop()
-    # print(mots)
-
-    grille = open('grid').read()
+    grille = open('grid_test').read()
     rows = grille.split('\n')
     rows.pop()
     grid = []
@@ -109,6 +105,6 @@ if __name__ == '__main__':
             ligne.append(lettre)
         grid.append(ligne)
 
-    print(diagonales_DG(grid))
+    # print(diagonales_DG(grid))
 
-    # print(diagonales_GD(grid))
+    print(diagonales_GD(grid))

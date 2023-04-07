@@ -9,7 +9,6 @@ def check_line_1w(ligne, mot):
         for i in range(len(ligne)-n+1):
             subset = ''.join(ligne[i: i+n])
             subset_n.append(subset)
-        # print(subset_n)
         # subset_n_rvse = [mot[::-1] for mot in subset_n]
         # print(subset_n_rvse)
         inv_mot = mot[::-1]
@@ -17,7 +16,7 @@ def check_line_1w(ligne, mot):
 
 
 def check_line(ligne, mots):
-    mots_iter = mots.copy()
+    mots_iter = [mot for mot in mots]
     for mot in mots_iter:
         if check_line_1w(ligne, mot):
             mots.remove(mot)
@@ -25,11 +24,14 @@ def check_line(ligne, mots):
 
 
 if __name__ == '__main__':
-    ligne = ['h', 'h', 'c', 'h', 'a', 'r', 'i', 'z', 'a', 'r',
-             'd', 's', 'o', 'i']
-    mot = 'charizard'
-    print(check_line_1w(ligne, mot))
+    # ligne = ['h', 'h', 'c', 'h', 'a', 'r', 'i', 'z', 'a', 'r',
+    #          'd', 's', 'o', 'i']
+    # mot = 'charizard'
+    # print(check_line_1w(ligne, mot))
 
-    liste = open('words2.dic').read()
-    mots = liste.split('\n')
-    print(check_line(ligne, mots))
+    # liste = open('words2.dic').read()
+    # mots = liste.split('\n')
+    # print(check_line(ligne, mots))
+
+    ligne2 = ['p', 'i', 'k', 'a', 'c', 'h', 'u', 'a']
+    print(check_line(ligne2, ['pikachu', 'toto', 'huhu']))

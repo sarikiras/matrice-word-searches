@@ -24,5 +24,5 @@ for row in rows:
         ligne.append(lettre)
     grid.append(ligne)
 
-check_grid(grid, mots)
+check_grid(grid, hidden_words)
 # concatenation(grid)
